@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 
 const CAROUSEL_DATA = [
   {
-    url: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tahoe_North_Shore_from_the_East_Shore.jpg/1200px-Tahoe_North_Shore_from_the_East_Shore.jpg',
   },
   {
-    url: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    url: 'https://www.visitcalifornia.com/sites/visitcalifornia.com/files/styles/welcome_image/public/VC_TheBroad_Supplied_the_broad_photo_by_iwan_baan_3811_HR_1280x640.jpg',
   },
   {
-    url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    url: 'https://image-tc.galaxy.tf/wijpeg-vz2ozovjrouf3b7otz7a8h0v/knotte28099s-berry-farm_standard.jpg?crop=114%2C0%2C1772%2C1329',
+  },
+  {
+    url: 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/travelpasoca/Sensorio_9d9b6c25-ef31-4713-a224-f24ddcf1c87c.png'
   },
 ];
 

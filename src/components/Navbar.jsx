@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
 const Navbar = () => {
   const [navIsShown, setnavIsShown] = useState(false);
   const toggleNavIsShown = () => {
@@ -7,22 +7,19 @@ const Navbar = () => {
   };
   return (
     <nav className='flex justify-between items-center h-20 px-4 absolute top-0 left-0 z-10 w-full text-white bg-transparent'>
-      <h1>Beaches.</h1>
+      <h1>Nancy Holiday</h1>
       <ul className='hidden md:flex'>
         <li>
-          <a href=''>Home</a>
+          <CustomLink to="/">Home</CustomLink>
         </li>
         <li>
-          <a href=''>Destinations</a>
+        <CustomLink to="/destination">Destinations</CustomLink>
         </li>
         <li>
-          <a href=''>Travel</a>
+        <CustomLink to="/about">About</CustomLink>
         </li>
         <li>
-          <a href=''>Views</a>
-        </li>
-        <li>
-          <a href=''>Book</a>
+          <CustomLink to="/contact">Contact</CustomLink>
         </li>
       </ul>
       <div className='hidden md:flex'>
@@ -75,7 +72,7 @@ const Navbar = () => {
       {navIsShown && (
         <div className='md:hidden absolute z-10 top-0 left-0 w-full bg-gray-100/90 text-black px-4 py-6'>
           <div className='flex justify-between'>
-            <h1>Beaches.</h1>
+            <h1>Nancy Holiday</h1>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
@@ -100,13 +97,10 @@ const Navbar = () => {
               <a href=''>Destinations</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Travel</a>
+              <a href=''>About</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Views</a>
-            </li>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Book</a>
+              <a href=''>Contact us</a>
             </li>
           </ul>
           <button className='w-full mb-4 btn'>Search</button>
@@ -116,5 +110,16 @@ const Navbar = () => {
     </nav>
   );
 };
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
+  )
+}
 export default Navbar;

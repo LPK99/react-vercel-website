@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+
 
 const Footer = () => {
+  const [navIsShown, setnavIsShown] = useState(false);
+  const toggleNavIsShown = () => {
+    setnavIsShown((navIsShown) => !navIsShown);
+  };
   return (
     <footer className='bg-gray-200 py-8'>
       <div className='container px-4 sm:flex justify-between items-center'>
-        <h1 className='px-2'>Beaches.</h1>
+        <h1 className='px-2'>Nancy Holiday</h1>
         <ul className='flex flex-wrap'>
           <li className='p-0 px-2'>
-            <a href=''>Home</a>
+          <CustomLink to="/">Home</CustomLink>
           </li>
           <li className='p-0 px-2'>
-            <a href=''>Destinations</a>
+          <CustomLink to="/destination">Destinations</CustomLink>
           </li>
           <li className='p-0 px-2'>
-            <a href=''>Travel</a>
+          <CustomLink to="/about">About</CustomLink>
           </li>
           <li className='p-0 px-2'>
-            <a href=''>Views</a>
-          </li>
-          <li className='p-0 px-2'>
-            <a href=''>Book</a>
+          <CustomLink to="/contact">Contact</CustomLink>
           </li>
         </ul>
       </div>
     </footer>
   );
 };
+
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
+  )
+}
 
 export default Footer;
